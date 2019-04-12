@@ -12,8 +12,8 @@ import sys
 
 # Define required packages.
 requires = ['adafruit-pureio']
-# Assume spidev is required on non-windows & non-mac platforms (i.e. linux).
-if sys.platform != 'win32' and sys.platform != 'darwin':
+# Install kernerl spi support if requested, other fall back to software
+if "--kspi" in sys.argv:
     requires.append('spidev')
 
 setup(name              = 'Adafruit_GPIO',
